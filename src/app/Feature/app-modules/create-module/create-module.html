@@ -1,0 +1,42 @@
+<form [formGroup]="moduleFormGroup" (ngSubmit)="onSubmit()">
+
+    <div formArrayName="modules">
+        <p-table [value]="modules.controls" dataKey="index">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Module Name</th>
+                    <th>Module Logo</th>
+                    <th>Is Active</th>
+                    <th>Actions</th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-row let-i="rowIndex">
+                <ng-container [formGroupName]="i">
+                    <tr>
+                        <td>
+                            <input pInputText type="text" formControlName="moduleName" placeholder="Module Name" />
+                        </td>
+                        <td>
+                            <input pInputText type="text" formControlName="moduleLogo" placeholder="Module Logo URL" />
+                        </td>
+                        <td>
+                            <p-checkbox formControlName="isActive" binary="true"></p-checkbox>
+                        </td>
+                        <td>
+                            <button pButton type="button" icon="pi pi-trash" class="p-button-danger"
+                                (click)="removeModule(i)"></button>
+                        </td>
+                    </tr>
+                </ng-container>
+            </ng-template>
+        </p-table>
+    </div>
+
+    <div class="p-mt-2">
+        <button pButton type="button" label="Add Row" icon="pi pi-plus" class="p-button-success"
+            (click)="addModule()"></button>
+
+        <button pButton type="submit" label="Submit All" class="p-button-primary p-ml-2"></button>
+    </div>
+</form>

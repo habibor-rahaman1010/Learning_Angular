@@ -1,0 +1,10 @@
+@import "primeicons/primeicons.css";
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100, 200, 200, 300, 400, 500, 600, 700, 800;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }
